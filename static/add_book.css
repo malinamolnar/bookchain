@@ -1,0 +1,14 @@
+.form{
+    font-family: Muli;
+    padding: 40px;
+    background-color:  rgba(252,221,128,0.5);
+    border-radius: 10px;
+    width: min-content;
+    margin: auto;
+}
+html,body{
+    background-image: radial-gradient(circle, #FFC312 2.5px, rgba(0, 0, 0, 0) 1px);
+    background-size: 100px 100px;;
+    height: 100%;
+    font-family: 'Muli';
+    }

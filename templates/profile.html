@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% if session['user'] %}
+
+
+<style>
+    .your-books{
+        font-size: x-large ;
+        font-style: italic;
+    }
+    .titlu{
+      font-weight: bold;
+    }
+
+    .helloo{
+      font-size: x-large;
+      font-weight: bold;
+
+    }
+</style>
+
+
+<h1 class="helloo">Hello {{ session['user'] }}</h1><br>
+
+{% endif %}
+
+{% if books|length != 0   %}
+<h1 class="your-books">  Here is a list of your books: </h1>
+<div class="lista">
+    <br>
+    {% for key, value in books.items() %}
+      <div class="click">
+          <h3 class="titlu"> {{ value }} </h3>
+          <h1 class="autor"> {{ key }} </h1>
+        <br>
+      </div>
+    {% endfor %}
+    
+    <br>
+    
+</div>
+
+{% else %}
+
+<h1>You don't have any books yet</h1>
+
+{% endif %}
+
+{% endblock %}
+

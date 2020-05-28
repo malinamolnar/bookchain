@@ -1,0 +1,51 @@
+key: TosnQQwbwiPCQqfSNqdQqQ
+secret: 4XI5n5Y6qbfArieMO00MbAGK8Ohn71cjjlmfflaabiQ
+
+<script>
+
+    function add_book(){
+        var title = $('#title') .val();
+        var author = $('#author').val();
+        $.ajax({
+				  method: "POST",
+				  url: "./add_book",
+				  contentType: "application/json",
+				  data: JSON.stringify({title: title, author:[author,'lala'] })
+				})
+                .done(function(data) {
+                    if(data){
+                        $('#result').append("<p>Added!</p>");
+                    }
+                    else {
+                        $('#result').append("not added");
+                    }
+                });
+        $("input[type=text], textarea").val("");
+
+    }
+
+</script>
+
+    if client:
+        query = Query(db, selector= {'email': {'$eq': email}})
+        if len(query()['docs']) == 0:   #nu exista utilizatorul
+            data = {'name': name, 'email':email, 'password':password, 'type':'user'}
+            my_document = db.create_document(data)
+            data['_id'] = my_document['_id']
+            return redirect(url_for('profile'))
+        else:
+            flash('Email address already exists')
+            return redirect(url_for('signup'))
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+
+ background-color: rgba(0, 0, 0, 0) !important;
+
+   $(function(){
+  $('.click').click(function(){
+     console.log( $(this).attr('id') );
+  });
+});
+
+
+key_google = nijg zfbu kjly dtns

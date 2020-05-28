@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <style>
+        .message{
+            width: 300px;
+            height: 100px;
+            border-radius: 30px;
+        }
+        .la{
+            font-size: 30px;
+        }
+
+        .boldy{
+            font-weight: bold;
+            font-size: xx-large;
+        }
+        .mess{
+            font-size: xx-large;
+        }
+    </style>
+
+    <div class="form">
+
+        <div><h3 class="la"> Send a message for <h1 class="boldy">{{ book_title }}</h1> by <h1 class="boldy">{{ book_author }}</h1></h3></div><br>
+
+        <form method="POST" action="/send_message_to_owner">
+        
+        <input type="hidden" id="owner" name="owner" id="owner" value= {{ id_owner }}>
+        <input type="hidden" id="title" name="title" id="title" value= {{ book_title }}>
+        <input type="hidden" id="author" name="author" id="author" value= {{ book_author }}>
+        <input type="hidden" id="id-book" name="id-book" id="id-book" value= {{ id_book }}>
+        <input type="hidden" id="future-owner" name="future-owner" id="future-owner" value= {{ future_owner }}>
+
+        <div class="field">
+        <label for="message"></label>
+        <input class="message" type="text" id="message" name="message"><br><br>
+        </div>
+
+        <button type="submit" class="button">Send message to the current owner</button><br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="mess">
+                {{ messages[0] }} </a>
+            </div>
+        {% endif %}
+        {% endwith %}
+        </form>
+        <p id="test"><br><br><br></p>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+var input = $( "#input-field-id" );
+input.val( input.val() + "more text" );
+</script>
+{% endblock %}

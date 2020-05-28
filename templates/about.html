@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .button{
+        width: 30px;
+    }
+    .how{
+        font-size: xx-large;
+        font-weight: bold;
+    }
+</style>
+
+    <div class="description">
+
+        
+        <p class="how">How does it work?</p><br>
+        <p> 1. You browse through the books from the main page </p>
+        <p> 2. After logging in, you send a message to the current owner</p>
+        <p> 3. The owner will receive an email with your address to get in contact with you</p>
+        <p> 4. You meet and exchange the book</p>
+        <p> 5. The old owner will transfer the book into your account by clicking a link in mail</p>
+        <p> 6. All done</p>
+        
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $("#title").css("width","200px");
+    $("#author").css("width","200px");
+    $(".button").css("width","min-content");
+    $(".button").css("background-image","pink");
+
+   $(function(){
+   $('#input is-large').click(function(){
+      console.log( $(this).attr('id') );
+   });
+});
+
+
+</script>
+
+{% endblock %}
+
+
+

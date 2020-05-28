@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  BOOKCHAIN
+</h1>
+<h2 class="subtitle">
+  a dynamic library
+</h2>
+
+<style>
+.lista{
+  
+  border-radius: 10px;
+  color: black;
+}
+
+
+.titlu{
+  font-weight: bold;
+}
+
+.click{
+  background-color: white;
+  border-radius: 50px;
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+}
+
+.titlu{
+  padding-top: 32%;
+}
+
+.autor{
+  padding: 10%;
+}
+
+.click:hover{
+ border-color: black;
+}
+
+.message-to-owner{
+  font-size: small;
+}
+
+</style>
+
+{% if books|length != 0   %}
+<div class="lista">
+<br>
+{% for key, value in books.items() %}
+  <div id= {{ value[1] }} class="click">
+      <h3 class="titlu"> {{ value[0] }} </h3>
+      <h1 class="autor"> {{ key }} </h1>
+    <br>
+  </div>
+{% endfor %}
+
+
+{% endif %}
+
+</div>
+{% endblock %}
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div>
+          {{ messages[0] }} </a>
+      </div>
+  {% endif %}
+{% endwith %}
+
+
+{% block javascript %}
+
+<script>
+/*
+   $(function(){
+   $('.click').click(function(){
+      console.log( $(this).attr('id') );
+   });
+});
+*/
+
+$( '.click' ).hover(
+  function() {
+    var id_book = $(this).attr('id');
+    console.log($(this).attr('id'));
+    $( this ).append( $( "<h1 class='message-to-owner' id='"+id_book+"'><a href='/send_message_form?id="+id_book+"'>Send a request to the owner</a></h1>" ));
+
+  }, function() {
+    $( this ).find( "h1" ).last().remove();
+  }
+);
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .button{
+        width: 30px;
+    }
+</style>
+
+    <div class="form">
+
+        
+
+        <form method="POST" action="/add_book">
+        
+        <div class="field">
+        <label for="title"></label>
+        <input class="input is-large"" type="text" id="title" name="title" placeholder="Title"><br><br>
+        </div>
+
+        <div class="field">
+        <label for="author"></label>
+        <input class="input is-large" type="text" id="author" name="author" placeholder="Author"><br><br>
+        </div>
+
+        <button type="submit" class="button">Add book</button>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div>
+                {{ messages[0] }} </a>
+            </div>
+        {% endif %}
+        {% endwith %}
+        </form>
+        <p id="test"><br><br><br></p>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $("#title").css("width","200px");
+    $("#author").css("width","200px");
+    $(".button").css("width","min-content");
+    $(".button").css("background-image","pink");
+
+   $(function(){
+   $('#input is-large').click(function(){
+      console.log( $(this).attr('id') );
+   });
+});
+
+
+</script>
+
+{% endblock %}
+
+
+
